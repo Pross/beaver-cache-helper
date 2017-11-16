@@ -8,11 +8,13 @@
  */
 class FL_Cache_Buster {
 	public static function init() {
-		add_action( 'upgrader_process_complete',           array( __class__, 'clear_caches' ) );
-		add_action( 'fl_builder_after_save_layout',        array( __class__, 'clear_caches' ) );
-		add_action( 'fl_builder_after_save_user_template', array( __class__, 'clear_caches' ) );
-		add_action( 'fl_builder_cache_cleared',            array( __class__, 'clear_caches' ) );
-		add_action( 'template_redirect',                   array( __class__, 'donotcache' ) );
+		add_action( 'upgrader_process_complete',              array( __class__, 'clear_caches' ) );
+		add_action( 'fl_builder_after_save_layout',           array( __class__, 'clear_caches' ) );
+		add_action( 'fl_builder_after_save_user_template',    array( __class__, 'clear_caches' ) );
+		add_action( 'template_redirect',                      array( __class__, 'donotcache'   ) );
+		add_action( 'post_updated',                           array( __class__, 'clear_caches' ) );
+		add_filter( 'get_rocket_option_remove_query_strings', array( __class__, 'disable_option' ) );
+		add_filter( 'get_rocket_option_cdn',                  array( __class__, 'disable_option' ) );
 	}
 	/**
 	 * Clear the various cache plugins.
@@ -51,6 +53,13 @@ class FL_Cache_Buster {
 			&& FLBuilderModel::is_builder_active() ) {
 				define( 'DONOTCACHEPAGE', true );
 		}
+	}
+
+	public static function disable_option( $opt ) {
+		if ( class_exists( 'FLBuilderModel' ) && FLBuilderModel::is_builder_active() ) {
+			return false;
+		}
+		return $opt;
 	}
 }
 FL_Cache_Buster::init();
