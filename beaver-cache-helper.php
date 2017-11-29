@@ -40,6 +40,15 @@ class FL_Cache_Buster {
 		if ( function_exists( 'sg_cachepress_purge_cache' ) ) {
 			sg_cachepress_purge_cache();
 		}
+
+		// varnish
+		@wp_remote_request( get_site_url(), array( 'method' => 'PURGE' ) );
+
+		// LiteSpeed
+		if( class_exists( 'LiteSpeed_Cache_API' ) ) {
+			LiteSpeed_Cache_API::purge_all();
+		}
+
 		error_log( 'Cleared Caches' );
 	}
 	/**
