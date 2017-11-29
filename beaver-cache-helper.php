@@ -42,7 +42,7 @@ class FL_Cache_Buster {
 		}
 
 		// varnish
-		@wp_remote_request( get_site_url(), array( 'method' => 'PURGE' ) );
+		@wp_remote_request( get_site_url(), array( 'method' => 'BAN' ) );
 
 		// LiteSpeed
 		if( class_exists( 'LiteSpeed_Cache_API' ) ) {
