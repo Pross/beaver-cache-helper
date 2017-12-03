@@ -49,6 +49,11 @@ class FL_Cache_Buster {
 		if( class_exists( 'LiteSpeed_Cache_API' ) ) {
 			LiteSpeed_Cache_API::purge_all();
 		}
+		
+		// Cache Enabler
+		if( class_exists( 'Cache_Enabler' ) ) {
+			Cache_Enabler::clear_total_cache();
+		}
 
 		error_log( 'Cleared Caches' );
 	}
