@@ -10,5 +10,6 @@ The plugin also defines the DONOTCACHEPAGE constant when the builder is active, 
 * 1.1
   * Added basic varnish support.
   * LiteSpeed support added.
+  * Cache Enabler support added.
 * 1.0
   * Initial release
