@@ -41,7 +41,7 @@ class FL_Cache_Buster {
 		if ( function_exists( 'sg_cachepress_purge_cache' ) ) {
 			sg_cachepress_purge_cache();
 		}
-
+		
 		// varnish
 		@wp_remote_request( get_site_url(), array( 'method' => 'BAN' ) );
 
@@ -54,6 +54,12 @@ class FL_Cache_Buster {
 		if( class_exists( 'Cache_Enabler' ) ) {
 			Cache_Enabler::clear_total_cache();
 		}
+
+    // wp fastest cache
+		if( class_exists( 'WpFastestCache' ) ) {
+			global $wp_fastest_cache;
+			$wp_fastest_cache->deleteCache( true );
+    }
 
 		error_log( 'Cleared Caches' );
 	}
