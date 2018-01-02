@@ -54,6 +54,11 @@ class FL_Cache_Buster {
 		if( class_exists( 'Cache_Enabler' ) ) {
 			Cache_Enabler::clear_total_cache();
 		}
+		
+		// Pagely
+		if ( class_exists( 'PagelyCachePurge' ) ) {
+			PagelyCachePurge::purgeAll();	
+		}
 
     // wp fastest cache
 		if( class_exists( 'WpFastestCache' ) ) {
