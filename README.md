@@ -7,6 +7,9 @@ The plugin also defines the DONOTCACHEPAGE constant when the builder is active, 
 
 # Changelog
 
+* 1.2
+  * Pagely cache support.
+  * Fastest Cache support.
 * 1.1
   * Added basic varnish support.
   * LiteSpeed support added.
