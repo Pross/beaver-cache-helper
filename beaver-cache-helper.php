@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Beaver Builder Cache Helper
  * Description: This plugin will clear various caches when layouts and templates are saved. It also clears the cache when WordPress finishes updating plugins and themes. The plugin also defines the DONOTCACHEPAGE constant when the builder is active, this is respected by most cache plugins.
- * Version: 1.1
+ * Version: 1.2
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -60,11 +60,11 @@ class FL_Cache_Buster {
 			PagelyCachePurge::purgeAll();	
 		}
 
-    // wp fastest cache
+    		// wp fastest cache
 		if( class_exists( 'WpFastestCache' ) ) {
 			global $wp_fastest_cache;
 			$wp_fastest_cache->deleteCache( true );
-    }
+    		}
 
 		error_log( 'Cleared Caches' );
 	}
