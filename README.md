@@ -1,4 +1,5 @@
-# beaver-cache-helper
+# beaver-cache-helper [![Build Status](https://travis-ci.org/Pross/beaver-cache-helper.svg?branch=master)](https://travis-ci.org/Pross/beaver-cache-helper)
+
 This plugin will clear various caches when layouts and templates are saved.
 
 It also clears the cache when WordPress finishes updating plugins and themes.
