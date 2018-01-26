@@ -70,7 +70,10 @@ class FL_Cache_Buster {
 		if( class_exists( 'autoptimizeCache' ) ) {
 			autoptimizeCache::clearall();
 		}
-
+		//comet cache (formerly zencache)
+		if( class_exists( 'comet_cache' ) ) {
+			comet_cache::clear();
+		}
 		error_log( 'Cleared Caches' );
 	}
 	/**
