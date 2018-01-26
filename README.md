@@ -8,6 +8,9 @@ The plugin also defines the DONOTCACHEPAGE constant when the builder is active, 
 
 # Changelog
 
+
+* 1.4
+  * Add Comet Cache support, props beatelite.
 * 1.3
   * Autoptimize support.
 * 1.2
