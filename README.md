@@ -1,3 +1,6 @@
+# NOTE as of 2.1.5 this plugin is merged into Beaver Builder.
+
+
 # beaver-cache-helper [![Build Status](https://travis-ci.org/Pross/beaver-cache-helper.svg?branch=master)](https://travis-ci.org/Pross/beaver-cache-helper)
 
 This plugin will clear various caches when layouts and templates are saved.
